@@ -1,0 +1,21 @@
+[package]
+name = "rust_expr"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_expr"
+crate-type = ["cdylib"]
+
+[dependencies]
+numpy = "0.19"
+pyo3 = { version = "0.19", features = ["extension-module"] }
+ndarray = "0.15"
+statrs = "0.16"
+rayon = "1.7"
+thiserror = "1.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
